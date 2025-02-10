@@ -30,6 +30,22 @@
 
     // Add your code here
 
+    // remove the last item of the array
+    myArray.pop();
+
+    // add 2 names to the end of the aray
+    myArray.push("Enoma", "Uwaifo");
+
+    // add each index after the name
+    let index = 0
+    for (const name of myArray) {
+      myArray[index] = `${name} (${index})`;
+      index++;
+    }
+
+    // join the array items together
+    const myString = myArray.join("-");
+
     // Don't edit the code below here!
 
     const section = document.querySelector('section');
