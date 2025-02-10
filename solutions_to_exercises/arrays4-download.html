@@ -30,6 +30,28 @@
 
     // Add your code here
 
+    // get the index of the Eagle's item
+    const eaglesIndex = birds.indexOf("Eagles");
+
+    let birdsNoEagles = [];
+
+    // remove the Eagles item using its index
+    for (const bird of birds) {
+      if (birds.indexOf(bird) !== eaglesIndex) {
+          birdsNoEagles.push(bird);
+      }
+    }
+
+    let eBirds = [];
+
+    for (const bird of birdsNoEagles) {
+      if ( bird.starsWith("E") ) {
+          eBirds.push(bird);
+      }
+    }
+
+    //eBirds = eBirds.join(",");
+
     // Don't edit the code below here!
 
     const section = document.querySelector('section');
