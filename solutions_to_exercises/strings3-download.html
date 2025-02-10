@@ -30,6 +30,28 @@
 
     // Add your code here
 
+    // extract the first letter and convert to uppercase
+    const capFirstLetter = quote.charAt(0).toUpperCase();
+
+
+    // create a new string
+    const fixedQuote = capFirstLetter + quote.toLowerCase().slice(1);
+
+    // string to replace
+    const stringToReplace = "green eggs and ham";
+
+    // string to replace it with
+    const newString = "Soy Bean and Spinach"; 
+
+    // find the string index in the quote
+    const indexOfstringToReplace = fixedQuote.indexOf(stringToReplace);
+
+    // extract the "string to replace" from the quote
+    const newQuote = fixedQuote.slice(0, indexOfstringToReplace);
+
+    // create the final quote
+    const finalQuote = newQuote + newString;
+
     // Don't edit the code below here!
 
     const section = document.querySelector('section');
