@@ -32,4 +32,16 @@ function result() {
 
   story.textContent = ;
   story.style.visibility = 'visible';
+
+  // stores the story text
+  let newStory = storyText;
+
+  // stores the random story that will be gnerated
+  let xItem = randomValueFromArray(insertX);
+  
+  let yItem = randomValueFromArray(insertY);
+
+  let zItem = randomValueFromArray(insertZ);
+
+  
 }
