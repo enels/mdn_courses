@@ -30,6 +30,15 @@
 
     let myString = 'Ryu+Ken+Chun-Li+Cammy+Guile+Sakura+Sagat+Juri';
 
+    // convert string into array using "+" as the delimiter    
+    let myArray = myString.split("+");
+
+    // get the array length
+    const arrayLength = myArray.length;
+
+    // get the array's last item
+    const lastItem = myArray[-1];
+
     // Don't edit the code below here!
 
     const section = document.querySelector('section');
