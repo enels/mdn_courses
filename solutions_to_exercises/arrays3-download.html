@@ -37,10 +37,8 @@
     myArray.push("Enoma", "Uwaifo");
 
     // add each index after the name
-    let index = 0
     for (const name of myArray) {
-      myArray[index] = `${name} (${index})`;
-      index++;
+      myArray[myArray.indexOf(name)] = `${name} (${myArray.indexOf(name)})`;
     }
 
     // join the array items together
