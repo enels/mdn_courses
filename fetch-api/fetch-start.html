@@ -54,6 +54,49 @@
 
     <pre></pre>
 
-    <script></script>
+    <script>
+      const verseChoose = document.querySelector("select");
+
+      const poemDisplay = document.querySelector("pre");
+
+      verseChoose.addEventListener("change", () => {
+        const verse = verseChoose.value;
+        updateDisplay(verse);
+      });
+
+      function updateDisplay(verse) {
+
+        verse = verse.replace(" ", "").toLowerCase();
+        const url = `${verse}.txt`;
+
+
+        // Use the Fetch API
+      fetch(url)
+
+// fetch returns a promise after receiving response from the server
+.then((response) =>  {
+
+  // handler throws an error if response comes with an error
+  if (!response.ok) {
+    throw new Error(`HTTP error: ${response.status}`);
+  }
+
+  // else if it succeeds, it will call the text
+  return response.text();
+})
+
+// if response succeeds, the tne handler is called with the text to change the html node text
+.then((text) => {
+  poemDisplay.textContent = text;
+})
+
+.catch ((error) => {
+  poemDisplay.textContent = `Counld not fetch verse: ${error}`;
+});
+
+    }
+
+      
+    </script>
   </body>
 </html>
