@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <title>
+            Traffic Light Controller
+        </title>
+
+        <style>
+            /*The traffic light container */
+            #widget {
+                background-color: #000;
+                text-align: center;
+                max-width: 600px;
+                padding: 1.5em 0;
+                border-radius: 12px;
+                margin: 2.0em auto 2.5em;
+            }
+
+            #widget h3 {
+                color: #ddd;
+                margin: 0.5em;
+            }
+
+            #widget div {
+                height: 225px;
+                width: 225px;
+                border-radius: 50%;
+                border: 4px solid #bbb;
+                margin: 2.5em auto 4.0em;
+                background: #333;
+                background: radial-gradient(#444, #111);
+            }
+
+            #widget button {
+                color: #fff;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 300;
+                font-size: 1.0em;
+                width: 4.25em;
+                margin: 0 0.5em 1.0em;
+                padding: 0.5em;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background-color: #444;
+                cursor: pointer;
+            }
+
+            #widget button:hover {
+                background-color: #666;
+            }
+
+            #widget button:active {
+                background-color: #c00;
+            }
+
+            #widget button:focus {
+                outline: none;
+                background-color: #367fff
+            }
+
+            /* Light colour classes */
+            #widget div.stop {
+                background: #f81b10;
+                background: radial-gradient(#fa635b, #b70e05);
+            }
+
+            #widget div.get-ready {
+                background: #f8bc19;
+                background: radial-gradient(#fad266, #c18f06);
+            }
+
+            #widget div.go {
+                background: #61a010;
+                background: radial-gradient(#8ce916, #385d09);
+            }
+
+            /* In case JavaScript is not present */
+            .prompt {
+            color: #ccc;
+            }
+        .warning {
+            color: #fff;
+            background-color: #c00;
+            line-height: 1.4;
+            width: 80%;
+            padding: 8px 15px;
+            margin: 0 auto;
+        }
+
+        #widget button[disabled] {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        </style>
+    </head>
+
+<body>
+
+    <section id="widget"> <!-- Open widget-->
+        <h3>A Traffic Light Controller</h3>
+
+       <!-- This warning is swapped for a prompt on page load -->
+        <noscript><p class="warning"><strong>Oops! -</strong>  It looks like JavaScript isn't available. Unfortunately, this widget won't work without it.</p></noscript>
+
+        <div></div> <!--an empty div for the light-->
+        <button type="button" >Red</button>
+        <button type="button" >Amber</button>
+        <button type="button">Green</button>
+        <button type="button" >Off</button>
+    </section><!--close section-->
+
+    <script>
+        // Select the element that we need and assign them to variables
+        const light = document.querySelector("#widget div");
+
+        const buttons = document.querySelectorAll("#widget button");
+       
+        // Add an event listener to each button
+        buttons[0].addEventListener('click', redLight);
+        buttons[1].addEventListener('click', amberLight);
+        buttons[2].addEventListener('click', greenLight);
+        buttons[3].addEventListener('click', offLight);
+
+        // Building the functions
+        // One function for each button
+        function redLight() {
+            light.setAttribute('class', 'stop');
+        }
+
+        function amberLight() {
+            light.setAttribute('class', 'get-ready');
+        }
+
+        function greenLight() {
+            light.setAttribute('class', 'go');
+        }
+
+        function offLight() {
+            //if (light.hasAttribute('class')) {
+              //  light.removeAttribute('class');
+
+              buttons.forEach(button => button.disabled = true);
+        }
+
+        // If JS is available, update the message
+        const message = document.querySelector('p.warning');
+        message.setAttribute('class', 'prompt');
+        message.textContent = "Use the buttons to change the colour of the traffic light";
+    </script>
+</body>
+</html>
