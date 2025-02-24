@@ -41,24 +41,44 @@
     // create a list
     const myList = document.createElement("ul");
 
+    // display the total kittens
+
     function displayCatInfo(catString) {
       let total = 0;
       let male = 0;
+      let female = 0;
 
       // Add your code here
 
       // convert the string to jason object
       catStringObj = JSON.parse(catString);
 
-      for (const motherName of catStringObj) {
+      for (const mother of catStringObj) {
         //motherInfo = `${motherInfo} ${motherName.name},`;
 
         const listItem = document.createElement("li");
-        listItem.textContent = `${motherName.name}`;
+        listItem.textContent = `${mother.name}`;
 
         myList.appendChild(listItem);
+
+        // get the total number of kittens
+        total += mother.kittens.length;
+
+        for (const kitten of mother.kittens) {
+          if ( kitten.gender == "m" )
+            male += 1;
+          else
+            female += 1;
+          }
+
+        // filter out the male
+        // male += mother.kittens.gender.filter((gender) => gender == "m").length;
+
+        // female += mother.kittens.gender.filter((gender) => gender == "f").length;
+
       }
 
+      kittenInfo = `Number of Male kittens: ${male} Number of Female kittens: ${female} Total Kittens: ${total}`;
       // Don't edit the code below here!
 
       para1.textContent = motherInfo;
