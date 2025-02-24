@@ -38,11 +38,26 @@
     .then(response => response.text())
     .then(text => displayCatInfo(text))
 
+    // create a list
+    const myList = document.createElement("ul");
+
     function displayCatInfo(catString) {
       let total = 0;
       let male = 0;
 
       // Add your code here
+
+      // convert the string to jason object
+      catStringObj = JSON.parse(catString);
+
+      for (const motherName of catStringObj) {
+        //motherInfo = `${motherInfo} ${motherName.name},`;
+
+        const listItem = document.createElement("li");
+        listItem.textContent = `${motherName.name}`;
+
+        myList.appendChild(listItem);
+      }
 
       // Don't edit the code below here!
 
@@ -51,6 +66,7 @@
     }
 
     section.appendChild(para1);
+    section.appendChild(myList);
     section.appendChild(para2);
   </script>
 
