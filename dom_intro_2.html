@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Setting text content</title>
+
+        <style>
+            .container {
+                display: flex;
+                gap: 0.5rem;
+                flex-direction: column;
+            }
+
+            button {
+                width: 200px;
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="container">
+        <textarea class="story"></textarea>
+        <button id="set-text" type="button">Set text content</button>
+        <button id="clear-text" type="button">Clear text content</button>
+    </div>
+    <script>
+        "use strict";
+
+        const story = document.querySelector(".story");
+
+        const setText = document.querySelector("#set-text");
+
+        setText.addEventListener("click" , () => {
+            story.textContent = "It was a dark and stormy night...";
+        });
+
+        // clear text
+        const clearText = document.querySelector("#clear-text");
+
+        clearText.addEventListener("click", () => {
+            story.textContent = "";
+        });
+    </script>
+</body>
+</html>
