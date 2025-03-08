@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Changing Background</title>
+    </head>
+
+    <body>
+        <input
+          type="button"
+          value="Set paragraph background color"
+          onclick="setBackground()" />
+        <p>hi</p>
+        <p>hello</p>
+
+        <script>
+            function setBackground(){
+
+                const paragraph = document.getElementsByTagName("p");
+
+                // select the 2nd paragraph
+                const secondParagraph = paragraph[1];
+
+                // set the inline style
+                secondParagraph.style.background = "red";
+
+                // create more contents to the 2nd paragraph
+                moreContents = document.createTextNode(" World");
+
+                secondParagraph.appendChild(moreContents);
+            }
+        </script>
+      </body>
+      
+</html>
