@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <script>
+            "use strict";
+
+            window.onload = () => {
+                // create a couple of element in an otherwise empty HTML page
+                const heading = document.createElement("h1");
+
+                // create the text in the created heading element
+                const headingText = document.createTextNode("Big head!");
+
+                // append the text to the heading
+                heading.appendChild(headingText);
+
+                // appedn the heading to the body
+                document.body.appendChild(heading);
+            }
+        </script>
+    </head>
+<body>
+
+</body>
+</html>
