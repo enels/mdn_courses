@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Event Delegation</title>
+    </head>
+
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 100px;
+        }
+    </style>
+
+<body>
+
+    <div id="container">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+      </div>
+    
+      <script>
+            // function to generate random number for the colour code
+            function random(number) {
+                return Math.floor(Math.random() * number);
+            }
+
+            // function to change background of tile
+            function bgChange() {
+                const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+                return rndCol;
+            }
+
+            const container = document.querySelector("#container");
+
+            container.addEventListener("click", (event) => {
+                event.target.style.backgroundColor = bgChange();
+            });
+      </script>
+</body>
+</html>
