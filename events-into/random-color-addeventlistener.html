@@ -13,7 +13,13 @@
   <body>
     <button>Change color</button>
     <script>
+      "use strict";
+
       const btn = document.querySelector('button');
+
+      const controller = new AbortController();
+
+      let clicked;
 
       function random(number) {
         return Math.floor(Math.random() * (number+1));
@@ -22,7 +28,14 @@
       btn.addEventListener('click', () => {
         const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
         document.body.style.backgroundColor = rndCol;
-      });
+
+        clicked = true; // indicates button has been clicked
+      },
+    { signal: controller.signal});
+
+    if (clicked) {
+      controller.abort();
+    }
     </script>
   </body>
 </html>
