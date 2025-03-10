@@ -27,7 +27,7 @@ for (let i = 0; i < imgArray.length; i++) {
     // add a click event to trigger the display of the image and the alternative text
     newImage.addEventListener("click", () => {
         displayedImage.setAttribute('src', newImage.src);
-        displayedImage.setAttribute('alt', altObj[i]);
+        displayedImage.setAttribute('alt', newImage.alt);
     });
 }
 
