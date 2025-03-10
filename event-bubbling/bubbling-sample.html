@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bubbling in events</title>
+    </head>
+<boyd>
+    <div id="container">
+        <button>Click me</button>
+    </div>
+
+    <pre id="output"></pre>
+
+    <script>
+        // adding click event handlers to the parent and child elements
+        const output = document.querySelector("#output");
+
+        function handleClick(e) {
+            output.textContent += `You clicked on ${e.currentTarget.tagName} element\n`;
+        }
+
+        const container = document.querySelector("#container");
+        const button = document.querySelector("button");
+
+        document.body.addEventListener("click", handleClick);
+        container.addEventListener("click", handleClick);
+        button.addEventListener("click", handleClick);
+    </script>
+
+</boyd>
+</html>
