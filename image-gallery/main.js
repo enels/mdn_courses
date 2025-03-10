@@ -24,6 +24,11 @@ for (let i = 0; i < imgArray.length; i++) {
 
     thumbBar.appendChild(newImage);
     
+    // add a click event to trigger the display of the image and the alternative text
+    newImage.addEventListener("click", () => {
+        displayedImage.setAttribute('src', newImage.src);
+        displayedImage.setAttribute('alt', altObj[i]);
+    });
 }
 
 /* Wiring up the Darken/Lighten button */
