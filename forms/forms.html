@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head><title>creating forms</title></head>
+
+    <body>
+
+        <script>
+            const f = document.createElement("form"); // create a form
+            document.body.appendChild(f);
+            f.action = "/cgi-bin/some.cgi";
+            f.method = "POST";
+            f.submit();
+        </script>
+    </body>
+</html>

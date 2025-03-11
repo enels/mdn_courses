@@ -9,6 +9,12 @@
 
     <script>
         "use strict";
+        window.scrollTo({
+  top: 100,
+  left: 100,
+  behavior: "smooth",
+});
+
 
         function geoFindMe() {
             const status = document.querySelector("#status");
@@ -24,6 +30,10 @@
                 status.textContent = "";
                 mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
                 mapLink.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                
+                //console.log(latitude, longitude);
+
+                console.log(navigation.geolocation.GeoloationPosition.toJSON());
             }
 
             function error() {
