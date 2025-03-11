@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head><title>Extracting information from a form</title></head>
+
+<boyd>
+    <form name="formA" action="/cgi-bin/test" method="post">
+        <p>Press "Info" for form details or "Set" to change those details</p>
+        <p>
+            <button type="button" onclick="getFormInfo();">Info</button>
+            <button type="button" onclick="setFormInfo();">Set</button>
+            <button type="reset">Reset</button>
+        </p>
+
+        <textarea id="form-info" rows="15" cols="20"></textarea>
+    </form>
+
+    <script>
+        "use strict";
+
+        function getFormInfo() {
+            // get a reference to the form via its name
+            const f = document.forms["formA"];
+
+            // The form properties to be use
+            const properties = [
+                "elements",
+                "length",
+                "name",
+                "charset",
+                "action",
+                "acceptCharset",
+                "action",
+                "enctype",
+                "method",
+                "target"
+            ];
+
+            // iterate over the properties, turning them into a string that can be displayed
+            const info = properties.map((property) => `${property}: ${f[property]}`).join("\n");
+
+            // set the form's <textarea> to display the form's properties
+            document.forms["formA"].elements["form-info"].value = info;
+        }
+
+        function setFormInfo(f) {
+            // ****** argument should be a form reference element ******
+            f.action = "a-different-url.cgi";
+            f.name = "a-different-name";
+        }
+    </script>
+</boyd>
+</html>
