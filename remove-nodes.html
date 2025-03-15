@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Removing nodes</title>
+    </head>
+
+<body>
+    <div>
+        <p>
+            Paragraph 1
+        </p>
+        <p>
+            Paragraph 2
+        </p>
+        <p>
+            Pragraph 3
+        </p>
+        <ul>
+            <li>List 1</li>
+            <li>List 2</li>
+            <li>List 3</li>
+            <li>List 4</li>
+            <li>List 5</li>
+        </ul>
+    </div>
+
+    <script>
+
+        const element = document.querySelector("div");
+
+        let numOfEleToDelete = 5, numOfEleDeleted = 0;
+        function removeAllChildren(element) {
+            while (element.firstChild && ++numOfEleDeleted <= numOfEleToDelete )
+                //console.log(element.nodeType);
+                element.removeChild(element.firstChild);
+        }
+
+        removeAllChildren(element);
+    </script>
+</body>
+</html>
